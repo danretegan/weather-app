@@ -21,26 +21,32 @@
     <link rel="stylesheet" href="style.css" />
     <title>Weather App</title>
   </head>
+
   <body>
     <div class="container my-5 mx-auto">
       <h1 class="text-muted text-center my-4">Weather App</h1>
 
+      <!--* City form element: -->
       <form class="change-location my-4 text-center text-muted">
-        <label for="cityInput">Enter a location</label>
+        <label for="cityInput">Enter a location for weather information:</label>
         <input type="text" id="cityInput" class="form-control p-4" />
       </form>
 
-      <div class="card shadow-lg rounded">
+      <!--* Card element: -->
+      <div class="card shadow-lg rounded d-none">
         <img
           src="https://via.placeholder.com/400x300"
           class="time card-img-top"
           alt="grey placeholder 400x300"
         />
         <div class="icon gb-light mx-auto text-center">
-          <!-- icon -->
+          <!--* icon -->
         </div>
-        <div class="text-muted text-uppercase text-center details">
+
+        <!--* Details element: -->
+        <div class="details text-muted text-center">
           <h5 class="my-3">City name</h5>
+          <h6>Administrative area</h6>
           <div class="my-3">Weather condition</div>
           <div class="display-4 my-4">
             <span>temp</span>
