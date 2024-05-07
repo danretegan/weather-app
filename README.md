@@ -6,3 +6,5 @@ http://dataservice.accuweather.com/locations/v1/cities/search
 
 [Current Conditions](https://developer.accuweather.com/accuweather-current-conditions-api/apis/get/currentconditions/v1/%7BlocationKey%7D)
 http://dataservice.accuweather.com/currentconditions/v1/{locationKey}
+
+"Key": "272286",
