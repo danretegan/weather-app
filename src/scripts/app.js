@@ -5,11 +5,8 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 
 const updateUI = data => {
-  console.log(data); //! Vezi in consola cheile de care e nevoie!
-  const cityDetails = data.cityDetails;
-  const weather = data.weather;
-
-  //!   Update the details template:
+  //!   Destructuring:
+  const { cityDetails, weather } = data;
 
   details.innerHTML = `
   <h5 class="my-3">${cityDetails.LocalizedName}</h5>
@@ -20,8 +17,6 @@ const updateUI = data => {
     <span>&deg;C</span>
   </div>
   `;
-
-  //! remove the d-none class if it's pressent:
 
   if (card.classList.contains('d-none')) {
     card.classList.remove('d-none');
