@@ -1,0 +1,2 @@
+(async t=>{const a=`?apikey=S7G2LbP0Y0yEFG1MikAzostUxeEZK6Pl&q=${t}`,e=await fetch("http://dataservice.accuweather.com/locations/v1/cities/search"+a);return(await e.json())[0]})("Bistrita").then((t=>(async t=>{const a=`${t}?apikey=S7G2LbP0Y0yEFG1MikAzostUxeEZK6Pl`,e=await fetch("http://dataservice.accuweather.com/currentconditions/v1/"+a);return(await e.json())[0]})(t.Key))).then((t=>{console.log(t)})).catch((t=>console.log(t)));
+//# sourceMappingURL=index.efb44d66.js.map
