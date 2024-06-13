@@ -7,9 +7,11 @@ const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 
 const updateUI = data => {
+  //! destructure properties:
   const { cityDetails, weather } = data;
   console.log(data);
 
+  //! update details template:
   details.innerHTML = `
   <h5 class="my-3">${cityDetails.LocalizedName}</h5>
   <h6>${cityDetails.AdministrativeArea.LocalizedName}</h6>
@@ -24,16 +26,22 @@ const updateUI = data => {
   const iconSrc = `images/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
 
-  let timeSrc = null;
+  // let timeSrc = null;
 
-  if (weather.IsDayTime) {
-    timeSrc = 'images/day.svg';
-  } else {
-    timeSrc = 'images/night.svg';
-  }
+  // if (weather.IsDayTime) {
+  //   timeSrc = 'images/day.svg';
+  // } else {
+  //   timeSrc = 'images/night.svg';
+  // }
+
+  //* Ternary Operator:
+  //* const result = condition ? "value 1" : "value 2";
+
+  const timeSrc = weather.IsDayTime ? 'images/day.svg' : 'images/night.svg';
 
   time.setAttribute('src', timeSrc);
 
+  //! remove the d-none class if present:
   if (card.classList.contains('d-none')) {
     card.classList.remove('d-none');
   }
@@ -49,11 +57,11 @@ const updateCity = async city => {
 cityForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  //   get city value:
+  //!   get city value:
   const city = cityForm.elements.cityInput.value.trim();
   cityForm.reset();
 
-  //   update the ui with the new city:
+  //!   update the UI with the new city:
   updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
