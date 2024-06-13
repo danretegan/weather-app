@@ -65,4 +65,15 @@ cityForm.addEventListener('submit', e => {
   updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
+
+  //! set local storage:
+  localStorage.setItem('city', city);
 });
+
+//! verificam daca avem oras in local storage:
+if (localStorage.getItem('city')) {
+  //! daca avem oras in local storage facem update la UI cu datele din local storage:
+  updateCity(localStorage.getItem('city'))
+    .then(data => updateUI(data))
+    .catch(err => console.log(err));
+}
