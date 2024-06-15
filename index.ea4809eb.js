@@ -6,5 +6,5 @@
     <span>${i.Temperature.Metric.Value}</span>
     <span>&deg;C</span>
   </div>
-  `;let r=`images/icons/${i.WeatherIcon}.svg`;c.setAttribute("src",r);let o=i.IsDayTime?"images/day.svg":"images/night.svg";s.setAttribute("src",o),n.classList.contains("d-none")&&n.classList.remove("d-none")};a.addEventListener("submit",e=>{e.preventDefault();let t=a.cityInput.value.trim();a.reset(),d.updateCity(t).then(e=>u(e)).catch(e=>console.log(e)),localStorage.setItem("city",t)}),localStorage.getItem("city")&&d.updateCity(localStorage.getItem("city")).then(e=>u(e)).catch(e=>console.log(e))}();
-//# sourceMappingURL=index.cd843b34.js.map
+  `;let r=`./images/icons/${i.WeatherIcon}.svg`;c.setAttribute("src",r);let o=i.IsDayTime?"./images/day.svg":"./images/night.svg";s.setAttribute("src",o),n.classList.contains("d-none")&&n.classList.remove("d-none")};a.addEventListener("submit",e=>{e.preventDefault();let t=a.cityInput.value.trim();a.reset(),d.updateCity(t).then(e=>u(e)).catch(e=>console.log(e)),localStorage.setItem("city",t)}),localStorage.getItem("city")&&d.updateCity(localStorage.getItem("city")).then(e=>u(e)).catch(e=>console.log(e))}();
+//# sourceMappingURL=index.ea4809eb.js.map
