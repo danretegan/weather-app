@@ -6,5 +6,5 @@ var e="undefined"!=typeof globalThis?globalThis:"undefined"!=typeof self?self:"u
     <span>${r.Temperature.Metric.Value}</span>
     <span>&deg;C</span>
   </div>
-  `;let i=`./images/icons/${r.WeatherIcon}.svg`;c.setAttribute("src",i);let o=r.IsDayTime?"./images/day.svg":"./images/night.svg";l.setAttribute("src",o),n.classList.contains("d-none")&&n.classList.remove("d-none")};a.addEventListener("submit",e=>{e.preventDefault();let t=a.cityInput.value.trim();a.reset(),d.updateCity(t).then(e=>u(e)).catch(e=>console.log(e)),localStorage.setItem("city",t)}),localStorage.getItem("city")&&d.updateCity(localStorage.getItem("city")).then(e=>u(e)).catch(e=>console.log(e));
-//# sourceMappingURL=index.0ece0b0e.js.map
+  `;let i=`images/icons/${r.WeatherIcon}.svg`;c.setAttribute("src",i);let o=r.IsDayTime?"images/day.svg":"images/night.svg";l.setAttribute("src",o),n.classList.contains("d-none")&&n.classList.remove("d-none")};a.addEventListener("submit",e=>{e.preventDefault();let t=a.cityInput.value.trim();a.reset(),d.updateCity(t).then(e=>u(e)).catch(e=>console.log(e)),localStorage.setItem("city",t)}),localStorage.getItem("city")&&d.updateCity(localStorage.getItem("city")).then(e=>u(e)).catch(e=>console.log(e));
+//# sourceMappingURL=index.1be4b4e1.js.map
