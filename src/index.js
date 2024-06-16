@@ -1,4 +1,6 @@
 import { Forecast } from './forecast.js';
+import dayImage from './images/day.svg';
+import nightImage from './images/night.svg';
 
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
@@ -24,7 +26,7 @@ const updateUI = data => {
   const iconSrc = `./images/icons/${weather.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
 
-  const timeSrc = weather.IsDayTime ? './images/day.svg' : './images/night.svg';
+  const timeSrc = weather.IsDayTime ? dayImage : nightImage;
   time.setAttribute('src', timeSrc);
 
   if (card.classList.contains('d-none')) {
