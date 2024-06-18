@@ -14,13 +14,13 @@ const updateUI = data => {
   console.log(data);
 
   details.innerHTML = `
-  <h5 class="my-3">${cityDetails.LocalizedName}</h5>
-  <h6>${cityDetails.AdministrativeArea.LocalizedName}</h6>
-  <div class="my-3">${weather.WeatherText}</div>
-  <div class="display-4 my-4">
-    <span>${weather.Temperature.Metric.Value}</span>
-    <span>&deg;C</span>
-  </div>
+    <h5 class="my-3">${cityDetails.LocalizedName}</h5>
+    <h6>${cityDetails.AdministrativeArea.LocalizedName}</h6>
+    <div class="my-3">${weather.WeatherText}</div>
+    <div class="display-4 my-4">
+      <span>${weather.Temperature.Metric.Value}</span>
+      <span>&deg;C</span>
+    </div>
   `;
 
   const iconSrc = `./images/icons/${weather.WeatherIcon}.svg`;
