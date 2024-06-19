@@ -1,6 +1,7 @@
 import { Forecast } from './forecast.js';
 import dayImage from './images/day.svg';
 import nightImage from './images/night.svg';
+import icons from './icons.js';
 
 const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
@@ -23,7 +24,7 @@ const updateUI = data => {
     </div>
   `;
 
-  const iconSrc = `./images/icons/${weather.WeatherIcon}.svg`;
+  const iconSrc = icons[weather.WeatherIcon];
   icon.setAttribute('src', iconSrc);
 
   const timeSrc = weather.IsDayTime ? dayImage : nightImage;
