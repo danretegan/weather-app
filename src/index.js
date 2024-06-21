@@ -8,8 +8,27 @@ const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 const time = document.querySelector('.time');
 const weatherIconUse = document.querySelector('.weather-icon use');
+const errorMessage = document.querySelector('.error-message');
 
 const forecast = new Forecast();
+
+const showError = message => {
+  if (errorMessage) {
+    errorMessage.textContent = message;
+    errorMessage.classList.remove('d-none');
+  } else {
+    console.error('The element .error-message was not found in the DOM.');
+  }
+};
+
+const hideError = () => {
+  if (errorMessage) {
+    errorMessage.classList.add('d-none');
+    errorMessage.textContent = '';
+  } else {
+    console.error('The element .error-message was not found in the DOM.');
+  }
+};
 
 const updateUI = data => {
   const { cityDetails, weather } = data;
@@ -25,7 +44,13 @@ const updateUI = data => {
   `;
 
   const iconId = icons[weather.WeatherIcon]; //* Obținem id-ul simbolului din sprite.
-  weatherIconUse.setAttribute('xlink:href', iconId); //* Setăm xlink:href pentru weather-icon.
+  if (iconId) {
+    weatherIconUse.setAttribute('xlink:href', iconId); //* Setăm xlink:href pentru weather-icon.
+    weatherIconUse.parentElement.classList.remove('d-none'); //* Asigurăm că iconița este vizibilă.
+  } else {
+    console.warn(`No icon found for WeatherIcon ${weather.WeatherIcon}`);
+    weatherIconUse.parentElement.classList.add('d-none'); //* Ascundem iconița dacă nu există corespondent.
+  }
 
   const timeSrc = weather.IsDayTime ? dayImage : nightImage;
   time.setAttribute('src', timeSrc);
@@ -43,8 +68,14 @@ cityForm.addEventListener('submit', e => {
 
   forecast
     .updateCity(city)
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
+    .then(data => {
+      updateUI(data);
+      hideError();
+    })
+    .catch(err => {
+      console.log(err);
+      showError('Failed to fetch the weather details. Please try again.');
+    });
 
   localStorage.setItem('city', city);
 });
@@ -54,6 +85,14 @@ const savedCity = localStorage.getItem('city');
 if (savedCity) {
   forecast
     .updateCity(savedCity)
-    .then(data => updateUI(data))
-    .catch(err => console.log(err));
+    .then(data => {
+      updateUI(data);
+      hideError();
+    })
+    .catch(err => {
+      console.log(err);
+      showError(
+        'Failed to fetch the weather details for the saved city. Please try again.'
+      );
+    });
 }
