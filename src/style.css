@@ -12,5 +12,11 @@ body {
   top: -50px;
   border-radius: 50%;
   width: 100px;
+  height: 100px;
   margin-bottom: -50px;
+}
+.weather-icon {
+  position: relative;
+  top: -25%;
+  left: -100%;
 }

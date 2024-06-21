@@ -3,16 +3,16 @@ import dayImage from './images/day.svg';
 import nightImage from './images/night.svg';
 import icons from './icons.js';
 
-const cityForm = document.querySelector('form');
+const cityForm = document.querySelector('.change-location');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
-const time = document.querySelector('img.time');
-const icon = document.querySelector('.icon img');
+const time = document.querySelector('.time');
+const weatherIconUse = document.querySelector('.weather-icon use');
+
 const forecast = new Forecast();
 
 const updateUI = data => {
   const { cityDetails, weather } = data;
-  console.log(data);
 
   details.innerHTML = `
     <h5 class="my-3">${cityDetails.LocalizedName}</h5>
@@ -24,8 +24,8 @@ const updateUI = data => {
     </div>
   `;
 
-  const iconSrc = icons[weather.WeatherIcon];
-  icon.setAttribute('src', iconSrc);
+  const iconId = icons[weather.WeatherIcon]; //* Obținem id-ul simbolului din sprite.
+  weatherIconUse.setAttribute('xlink:href', iconId); //* Setăm xlink:href pentru weather-icon.
 
   const timeSrc = weather.IsDayTime ? dayImage : nightImage;
   time.setAttribute('src', timeSrc);
@@ -49,9 +49,11 @@ cityForm.addEventListener('submit', e => {
   localStorage.setItem('city', city);
 });
 
-if (localStorage.getItem('city')) {
+//* Verificăm dacă există o locație salvată în localStorage și actualizeazăm UI-ul:
+const savedCity = localStorage.getItem('city');
+if (savedCity) {
   forecast
-    .updateCity(localStorage.getItem('city'))
+    .updateCity(savedCity)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 }
