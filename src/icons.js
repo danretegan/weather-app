@@ -1,47 +1,13 @@
-// icons.js
 import sprite from './images/icons/icons-defs.svg';
 
-const icons = {
-  1: `${sprite}#icon-1`,
-  2: `${sprite}#icon-2`,
-  3: `${sprite}#icon-3`,
-  4: `${sprite}#icon-4`,
-  5: `${sprite}#icon-5`,
-  6: `${sprite}#icon-6`,
-  7: `${sprite}#icon-7`,
-  8: `${sprite}#icon-8`,
-  11: `${sprite}#icon-11`,
-  12: `${sprite}#icon-12`,
-  13: `${sprite}#icon-13`,
-  14: `${sprite}#icon-14`,
-  15: `${sprite}#icon-15`,
-  16: `${sprite}#icon-16`,
-  17: `${sprite}#icon-17`,
-  18: `${sprite}#icon-18`,
-  19: `${sprite}#icon-19`,
-  20: `${sprite}#icon-20`,
-  21: `${sprite}#icon-21`,
-  22: `${sprite}#icon-22`,
-  23: `${sprite}#icon-23`,
-  24: `${sprite}#icon-24`,
-  25: `${sprite}#icon-25`,
-  26: `${sprite}#icon-26`,
-  27: `${sprite}#icon-27`,
-  30: `${sprite}#icon-30`,
-  31: `${sprite}#icon-31`,
-  32: `${sprite}#icon-32`,
-  33: `${sprite}#icon-33`,
-  34: `${sprite}#icon-34`,
-  35: `${sprite}#icon-35`,
-  36: `${sprite}#icon-36`,
-  37: `${sprite}#icon-37`,
-  38: `${sprite}#icon-38`,
-  39: `${sprite}#icon-39`,
-  40: `${sprite}#icon-40`,
-  41: `${sprite}#icon-41`,
-  42: `${sprite}#icon-42`,
-  43: `${sprite}#icon-43`,
-  44: `${sprite}#icon-44`,
-};
+const iconIds = [
+  1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+  24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44,
+];
+
+const icons = iconIds.reduce((acc, id) => {
+  acc[id] = `${sprite}#icon-${id}`;
+  return acc;
+}, {});
 
 export default icons;
